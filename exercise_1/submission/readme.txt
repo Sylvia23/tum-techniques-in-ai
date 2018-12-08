@@ -31,3 +31,19 @@ The search ends when we pop the destination node from the queue, or if the queue
 becomes empty. When the destination node is popped, the distance that the tuple
 contains is the desired output. If the queue becomes empty before finding the
 destination, that means the destination is unreachable.
+
+
+## Solution 2
+
+### Packages used:
+- numpy==1.15.4
+
+### Implementation details
+
+The task can be simplified to finding connected components of dots which also
+has a node in any of the bordering rows and columns and leaving them as they
+are. So the search starts from nodes of each of the four borders. It marks the
+adjacent dots and all the dots connected to them as visited. This leaves all the
+dots which are surrounded by X as unvisited. A depth first search is used since
+it is simple to find connected components with. After this, marking all the
+unvisited dots as X produces the expected result.
